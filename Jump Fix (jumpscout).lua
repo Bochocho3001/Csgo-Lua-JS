@@ -14,7 +14,7 @@ local velocity = function(entity)
     return math.sqrt(velocity_x * velocity_x + velocity_y * velocity_y)
 end
 
-Cheat.RegisterCallback("createmove", function()
+function jump_fix()
     local me = EntityList.GetClientEntity(EngineClient.GetLocalPlayer()):GetPlayer()
     if me == nil then return end
     local weap = me:GetActiveWeapon()
@@ -62,9 +62,9 @@ Cheat.RegisterCallback("createmove", function()
     else
         auto_strafe:Set(true)
     end
-end)
+end
 
-Cheat.RegisterCallback("createmove", function()
+function jump_hitchance()
     local player = EntityList.GetLocalPlayer()
     if player == nil then return end
 
@@ -77,6 +77,11 @@ Cheat.RegisterCallback("createmove", function()
             end
         end
     end
+end
+
+Cheat.RegisterCallback("prediction", function ()
+    jump_hitchance()
+    jump_fix()
 end)
 
 Cheat.RegisterCallback("draw", function()
