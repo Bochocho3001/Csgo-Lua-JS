@@ -64,13 +64,12 @@ Cheat.RegisterCallback("createmove", function()
     end
 end)
 
-Cheat.RegisterCallback("prediction", function()
+Cheat.RegisterCallback("createmove", function()
     local player = EntityList.GetLocalPlayer()
     if player == nil then return end
 
     local standing = velocity(player) < 5
-
-    -- override hitchance
+		
     if hc_on:GetBool() then
         if standing and band(player:GetProp("m_fFlags"), 1) ~= 1 then
             for i = 1, 64 do
