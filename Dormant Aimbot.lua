@@ -22,7 +22,7 @@ Cheat.RegisterCallback("createmove", function(cmd)
                 local eye_pos = (me:GetPlayer()):GetEyePosition()
                 local enemy_hitbox_pos = player:GetHitboxCenter(3)
                 local trace = Cheat.FireBullet(me, eye_pos, enemy_hitbox_pos)
-                if dormant_state == 1 or dormant_state == 2 or  dormant_state == 3 or dormant_state == 4 then
+                if dormant_state ~= 1 then
                     if inaccuracy < 0.01 and trace.damage >= dmg:GetInt() then
                         local end_pos = (trace.trace).endpos
                         local start_pos = (trace.trace).startpos
