@@ -3,7 +3,9 @@ local bor, band = bit.bor, bit.band
 
 local enabled = Menu.Switch("Dormant Aimbot", "Enable Dormant Aimbot", false)
 local dmg = Menu.SliderInt("Dormant Aimbot", "Minimum Damage", 1, 1, 10)
-local max_misses = Menu.SliderInt("Dormant Aimbot", "Maximum Misses", 1, 1, 5, "Maximum misses before safe mode")
+enabled:RegisterCallback(function()
+    dmg:setVisible(enabled:Get())
+end)
 
 Cheat.RegisterCallback("createmove", function(cmd)
     if enabled:Get() ~= true then return end
