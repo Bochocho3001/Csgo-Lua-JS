@@ -5,7 +5,7 @@ local hc_on = Menu.Switch("Jump Fix", "Override Hitchance", false)
 local hc = Menu.SliderInt("Jump Fix", "Hitchance On Jump", 0, 0, 100)
 
 hc_on:RegisterCallback(function()
-    hc:SetVisible()
+    hc:SetVisible(hc_on:Get())
 end)
 
 local auto_strafe = Menu.FindVar("Miscellaneous", "Main", "Movement", "Auto Strafe")
