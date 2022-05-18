@@ -157,11 +157,11 @@ function on_paint()
     local item_x = box.x + 2
     local item_y = box.y + 17
 
-    for i = 1, #items.item_names do
+    for i = 1, 7 do
         local item_name = items.item_names[i]
         local item_path = items.item_paths[i]
 
-        if ui.get_key_bind(item_path):is_active() and not i > 7 then
+        if ui.get_key_bind(item_path):is_active() then
 
             text_ouline(item_name, verdana_font, item_x, item_y, 11)
             renderer.text(item_name, verdana_font, vec2_t.new(item_x, item_y), 11, color_t.new(255, 255, 255, 255))
