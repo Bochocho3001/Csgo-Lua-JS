@@ -110,7 +110,7 @@ function on_paint()
 
     local mousePos = renderer.get_cursor_pos()
 
-    if inBind(mousePos) and client.is_key_pressed(1) then
+    if inBind(mousePos) and client.is_key_pressed(1) and ui.is_visible() then
         keybind_x:set_value(mousePos.x - bindWidth / 2)
         keybind_y:set_value(mousePos.y - bindHeight / 2)
     end
